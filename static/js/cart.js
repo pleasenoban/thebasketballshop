@@ -51,9 +51,9 @@ function updateCartTotal() {
   }
   let trips = "";
   while (total != 0) {
-      trips = ("00" + total % 1000).slice(-3) + "." + trips;
-      total -= total % 1000;
-      total /= 1000;
+    trips = ("00" + total % 1000).slice(-3) + "." + trips;
+    total -= total % 1000;
+    total /= 1000;
   }
   if (trips != "") {
     trips += "000";
@@ -74,15 +74,16 @@ function cartload() {
   updateCartTotal();
 }
 
-function checkfornopurchases() {
-  for (let i = 1; i <= 12; i++) {
+async function checkfornopurchases() {
+  if (pdc === undefined) await getpdc();
+  for (let i = 1; i <= pdc; i++) {
     if (localStorage.getItem(`sp${i}`) != null) return false;
   }
   return true;
 }
 
 async function purchase() {
-  if (checkfornopurchases()) {
+  if ((await checkfornopurchases())) {
     Swal.fire("Giỏ hàng hiện trống vui lòng thêm đồ để thanh toán", "", "warning");
   } else {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -108,7 +109,8 @@ async function purchase() {
         "Cảm ơn bạn đã mua hàng",
         "success"
       );
-      for (let i = 1; i <= 12; i++) {
+      if (pdc === undefined) await getpdc();
+      for (let i = 1; i <= pdc; i++) {
         localStorage.removeItem("sp" + i);
       }
     } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -118,7 +120,7 @@ async function purchase() {
   }
 }
 async function removeAll() {
-  if (checkfornopurchases()) {
+  if ((await checkfornopurchases())) {
     Swal.fire("Giỏ hàng hiện trống", "", "warning");
   } else {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -144,7 +146,8 @@ async function removeAll() {
         "Đã xóa giỏ hàng",
         "success"
       );
-      for (let i = 1; i <= 12; i++) {
+      if (pdc === undefined) await getpdc();
+      for (let i = 1; i <= pdc; i++) {
         localStorage.removeItem("sp" + i);
       }
     } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -154,20 +157,20 @@ async function removeAll() {
   }
 }
 
-async function addsp(pic, name, price, id) {
+async function addsp(pic, name, option, price, id) {
   if (localStorage.getItem("sp" + id) !== null) {
     await daCoTrongRo();
   } else {
     var sp = `<div class = "cart-row" >
 <div class = "cart-item cart-column" >
-     <img class = "cart-item-image" src = "${pic}"
-     width = "100" height = "100" >
-      <span class = "cart-item-title " >${name}</span >
+      <img class = "cart-item-image" src = "${pic}"
+      width = "100" height = "100" >
+      <span class = "cart-item-title " >${name}<br>${option}</span >
 </div>
 <span class = "cart-price cart-column" >${price}</span >
 <div class = "cart-quantity cart-column " >
       <input class = " cart-quantity-input "type = "number" value = "1" >
-      <button class = " btn btn-danger1" type = "button" onclick="removeSp(${id})" >REMOVE</button >
+      <button style="font-weight:700;background-color:red;border-radius:3px;box-shadow:rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, red 0 -3px 0 inset" class = " btn btn-danger1" type = "button" onclick="removeSp(${id})" >REMOVE</button >
 </div>
 </div> 
 </div>`;
@@ -177,7 +180,12 @@ async function addsp(pic, name, price, id) {
   }
 }
 
-async function removeSp(id) {
+function removeSp(id) {
   localStorage.removeItem("sp" + id);
   location.reload();
+}
+
+async function nothing() {
+  if (!(await checkfornopurchases()))
+    document.getElementById('nothingInTheCart').style = "display:none"
 }

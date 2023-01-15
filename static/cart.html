@@ -6,29 +6,41 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 
-	<title>Tin tức NBA</title>
+	<title>Giỏ Hàng</title>
 	<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Loading third party fonts -->
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
 		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+	<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Jaldi&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,700;1,700&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+		rel="stylesheet">
 	<!-- Loading main css file -->
 	<link rel="stylesheet" href="css/login.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/button.css">
+	<link rel="stylesheet" href="css/cart.css">
 	<link rel="icon" type="image/x-icon" href="./images/favicon.png">
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+
 	<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
-
 </head>
 
-<body onload=" load();cartCounting();">
+<body onload=" load(); cartload();cartCounting();nothing(); ">
 	<!-- Messenger Plugin chat Code -->
 	<div id="fb-root"></div>
 
@@ -73,12 +85,15 @@
 						<li class="menu-item"><a href="index.html">Trang chủ</a></li>
 
 						<li class="menu-item"><a href="store.html">Cửa hàng</a></li>
-						<li class="menu-item"><a href="download.html">Xu hướng</a></li>
-						<li class="menu-item current-menu-item"><a href="news.html">Tin tức</a></li>
+						<li class="menu-item"><a href="xuhuong.html">Xu hướng</a></li>
+						<li class="menu-item"><a href="news.html">Tin tức</a></li>
 						<li class="menu-item"><a href="about.html">Về chúng tôi</a></li>
-						<li class="menu-item"><a href="cart.html">Giỏ Hàng<span id="countItem">(0)</span></a></li>
+						<li class="menu-item current-menu-item"><a href="cart.html">Giỏ Hàng<span
+									id="countItem">(0)</span></a></li>
 						<li class="menu-item"><a class="welcomeUser"
-								onclick="document.getElementById('id01').style.display='block'" >Login</a></li>
+								onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+
+
 					</ul> <!-- .menu -->
 				</nav> <!-- .main-navigation -->
 				<div class="mobile-menu"></div>
@@ -145,91 +160,35 @@
 			</script>
 		</div>
 		<main class="main-content">
-			<div class="fullwidth-block inner-content">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-7">
-							<div class="content">
-								<h2 class="entry-title">Tin tức NBA 2023 cập nhật hàng giờ</h2>
 
-								
-							</div>
-						</div>
-						<div class="col-md-4 col-md-push-1">
-							<aside class="sidebar">
-								<div class="widget">
-									<h3 class="widget-title">Bảng tin NBA</h3>
-									<ul class="discography-list">
-										<li>
-											<figure class="cover"><img src="./images/heat.jpg" alt="thumbnail 2">
-											</figure>
-											<div class="detail">
-												<h3><a
-														href="http://ttvn.toquoc.vn/jimmy-butler-bung-no-voi-41-diem-miami-heat-thang-thuyet-phuc-boston-celtics-40202218512855973.htm">Jimmy
-														Butler "bùng nổ" với 41 điểm, Miami Heat thắng thuyết phục
-														Boston Celtics</a></h3>
-												<span class="year">18/05</span>
-												<span class="track">2022</span>
+			<section class="container content-section">
 
-											</div>
-										</li>
-										<li>
-											<figure class="cover"><img src="./images/77a4e9c7-untitled-design-22.jpg"
-													alt="thumbnail 1"></figure>
-											<div class="detail">
-												<h3><a
-														href="https://sport5.vn/giat-minh-voi-loi-tien-tri-ve-su-nghiep-cua-ben-simmons-nam-2016-qua-giong-voi-thuc-te-20220506183055147.htm">Giật
-														mình với lời "tiên tri" về sự nghiệp của Ben Simmons năm 2016:
-														Quá giống với thực tế</a></h3>
-												<span class="year">17/05</span>
-												<span class="track">2022</span>
-											</div>
-										</li>
-										<li>
-											<figure class="cover"><img src="./images/gary.jpg" alt="thumbnail 4">
-											</figure>
-											<div class="detail">
-												<h3><a
-														href="https://sport5.vn/gary-payton-ii-nghi-it-nhat-3-tuan-golden-state-warriors-gap-kho-trong-viec-kem-cap-ja-morant-20220505112107117.htm">Gary
-														Payton II nghỉ ít nhất 3 tuần, Golden State Warriors gặp khó
-														trong việc kèm cặp Ja Morant</a></h3>
-												<span class="year">05/05</span>
-												<span class="track">2022</span>
-
-											</div>
-										</li>
-										<li>
-											<figure class="cover"><img src="./images/tyler.jpg" alt="thumbnail 3">
-											</figure>
-											<div class="detail">
-												<h3><a
-														href="http://nhipsongviet.toquoc.vn/nhung-con-so-an-tuong-cua-tyler-herro-sau-danh-hieu-6th-man-of-the-year-40202245151854316.htm">Những
-														con số ấn tượng của Tyler Herro sau danh hiệu "6th Man of the
-														Year"</a></h3>
-												<span class="year">04/05</span>
-												<span class="track">2022</span>
-											</div>
-										</li>
-										<li>
-											<figure class="cover"><img src="./images/Ja.jpg" alt="thumbnail 5"></figure>
-											<div class="detail">
-												<h3><a
-														href="Quái kiệt Ja Morant bùng nổ đưa Memphis Grizzlies trở về từ cõi chết">Quái
-														kiệt Ja Morant bùng nổ đưa Memphis Grizzlies trở về từ cõi
-														chết</a></h3>
-												<span class="year">04/05</span>
-												<span class="track">2022</span>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</aside>
-						</div>
-					</div>
+				<h2 style="border-bottom: none; font-size: 3rem;color:white;text-align: center;margin-top: 0;"
+					class="section-header">CART</h2>
+				<div class="cart-row">
+					<span class="cart-item cart-header cart-column"
+						style="color: white;font-family: 'Quattrocento Sans', sans-serif;">ITEM</span>
+					<span class="cart-price cart-header cart-column"
+						style="color: white;font-family: 'Quattrocento Sans', sans-serif;">PRICE</span>
+					<span class="cart-quantity cart-header cart-column"
+						style="color: white;font-family: 'Quattrocento Sans', sans-serif;">QUANTITY</span>
 				</div>
-			</div> <!-- .testimonial-section -->
 
+				<div class="cart-items">
+					<div id="chuaItem">
+						<h2 style="text-align: center;margin: 2em 0 1.5em 0;font-size: 2rem;" id="nothingInTheCart">
+							Không có sản phẩm nào trong giỏ hàng</h2>
 
+					</div>
+					<div class="cart-total">
+						<strong class="cart-total-title">Tổng cộng</strong>
+						<span class="cart-total-price">0 VNĐ</span>
+					</div>
+					<button
+						style="background-color: red;box-shadow: rgb(186 41 41 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #e91858 0 -3px 0 inset;"
+						class=" btn-purchase button-30" onclick="removeAll()">Remove All</button>
+					<button class=" btn-purchase button-30" onclick="purchase()" type="button">Mua hàng</button>
+				</div>
 		</main> <!-- .main-content -->
 
 		<footer class="site-footer">
@@ -242,8 +201,8 @@
 					</p>
 				</address>
 
-				<form action="#" class="newsletter-form">
-					<input type="email" placeholder="Điền email của bạn để nhận những thông báo mới nhất về NBA...">
+				<form action="javascript:void(0)" onsubmit="sendemail(document.getElementById('mail').value);GuiEmail();;GuiEmail();" class="newsletter-form">
+					<input type="email" id="mail" placeholder="Điền email của bạn để nhận những thông báo mới nhất về NBA..." required>
 					<input type="submit" class="button cut-corner" value="Subscribe">
 				</form> <!-- .newsletter-form -->
 
@@ -255,36 +214,34 @@
 					<a href="#"><i class="fa fa-pinterest"></i></a>
 				</div> <!-- .social-links -->
 
-				<p class="copy">BasketballShop @ Copyright 2022. All right reserved. Designed by <a href="">Giri Designs
+				<p class="copy">BasketballShop @ Copyright 2023. All right reserved. Designed by <a href="">Giri Designs
 						and Chí Dũng</a></p>
 			</div>
 			<div id="google_translate_element"></div>
- 
+
 			<script type="text/javascript">
 				function googleTranslateElementInit() {
 					new google.translate.TranslateElement(
-						{pageLanguage: 'vn'},
+						{ pageLanguage: 'vn' },
 						'google_translate_element'
 					);
 				}
 			</script>
-		 
-			<script type="text/javascript"
-					src=
-		"https://translate.google.com/translate_a/element.js?
+
+			<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
 		cb=googleTranslateElementInit">
-			</script>
+		</script>
 		</footer> <!-- .site-footer -->
 
 	</div> <!-- #site-content -->
-
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/button.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/template.js"></script>
-	<script src="js/news.js"></script>
+	<script src="js/cart.js" async></script>
+	<script src="js/mail.js"></script>
 </body>
 
 </html>

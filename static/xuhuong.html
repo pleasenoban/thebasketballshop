@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 
-	<title>Downloads</title>
+	<title>Xu hướng</title>
 	<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Loading third party fonts -->
@@ -74,7 +74,7 @@
 						<li class="menu-item"><a href="index.html">Trang chủ</a></li>
 
 						<li class="menu-item"><a href="store.html">Cửa hàng</a></li>
-						<li class="menu-item current-menu-item"><a href="download.html">Xu hướng</a></li>
+						<li class="menu-item current-menu-item"><a href="xuhuong.html">Xu hướng</a></li>
 						<li class="menu-item"><a href="news.html">Tin tức</a></li>
 						<li class="menu-item"><a href="about.html">Về chúng tôi</a></li>
 						<li class="menu-item"><a href="cart.html">Giỏ Hàng<span id="countItem">(0)</span></a></li>
@@ -155,7 +155,7 @@
 							<h2 class="page-title">Top Nike 2022</h2>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/air_jordan.html">
+								<a style="text-decoration: none;" href="/store_item?item=Air%20Jordan%20XXXVI%20PF">
 									<h3 class="item-title" style="color:pink ;text-emphasis: bold;"><span
 											class="th">1.</span>Air Jordan XXXVI PF</h3>
 								</a>
@@ -172,7 +172,7 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/pg6ep.html">
+								<a style="text-decoration: none;" href="/store_item?item=PG6%20EP">
 									<h3 class="item-title" style="color:#fcccb8 ;text-emphasis: bold;"><span
 											class="th">2.</span>PG 6 EP</h3>
 								</a>
@@ -189,7 +189,7 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/lebron19_low.html">
+								<a style="text-decoration: none;" href="/store_item?item=LeBron%2019%20Low">
 									<h3 class="item-title"><span class="th">3.</span>Lebron 19 Low</h3>
 								</a>
 								<span class="year">Ra mắt:12/1/2021</span>
@@ -205,7 +205,7 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/kd14.html">
+								<a style="text-decoration: none;" href="/store_item?item=KD%2014%20EP">
 									<h3 class="item-title" style="color: royalblue;"><span class="th">4.</span> KD 14 EP
 										'Multi-Color' </h3>
 								</a>
@@ -225,7 +225,7 @@
 							<h2 class="page-title">Top giày bóng rổ</h2>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/harden_stepback2.html">
+								<a style="text-decoration: none;" href="/store_item?item=Harden%20Stepback%202">
 									<h3 class="item-title" style="color: gold;"><span class="th">1.</span>Harden
 										Stepback 2 Core Black</h3>
 								</a>
@@ -242,7 +242,8 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/wayofwade9.html">
+								<a style="text-decoration: none;"
+									href="/store_item?item=Way%20Of%20Wade%209%20Infinity">
 									<h3 class="item-title" style="color: white;"><span class="th">2.</span>Li Ning Way
 										Of Wade 9 Infinity</h3>
 								</a>
@@ -259,7 +260,7 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/kt5.html">
+								<a style="text-decoration: none;" href='/store_item?item=KT5%20"Veteran"'>
 									<h3 class="item-title" style="color: #b0accb;"><span class="th">3.</span>KT5
 										"Veteran"</h3>
 								</a>
@@ -276,7 +277,8 @@
 							</div>
 
 							<div class="item">
-								<a style="text-decoration: none;" href="store_item/ua_havoc.html">
+								<a style="text-decoration: none;"
+									href="/store_item?item=Under%20Armour%20HOVR%20Havoc%204%20Clone">
 									<h3 class="item-title" style="color: silver;"><span class="th">4.</span>Under Amour
 										Havoc 4 Clone</h3>
 								</a>
@@ -309,8 +311,8 @@
 					</p>
 				</address>
 
-				<form action="#" class="newsletter-form">
-					<input type="email" placeholder="Điền email của bạn để nhận những thông báo mới nhất về NBA...">
+				<form action="javascript:void(0)" onsubmit="sendemail(document.getElementById('mail').value);GuiEmail();" class="newsletter-form">
+					<input type="email" id="mail" placeholder="Điền email của bạn để nhận những thông báo mới nhất về NBA..." required>
 					<input type="submit" class="button cut-corner" value="Subscribe">
 				</form> <!-- .newsletter-form -->
 
@@ -322,7 +324,7 @@
 					<a href="#"><i class="fa fa-pinterest"></i></a>
 				</div> <!-- .social-links -->
 
-				<p class="copy">BasketballShop @ Copyright 2022. All right reserved. Designed by <a href="">Giri Designs
+				<p class="copy">BasketballShop @ Copyright 2023. All right reserved. Designed by <a href="">Giri Designs
 						and Chí Dũng</a></p>
 			</div>
 			<div id="google_translate_element"></div>
@@ -350,6 +352,7 @@
 	<script src="js/login.js"></script>
 	<script src="../js/cart.js" async></script>
 	<script src="js/template.js"></script>
+	<script src="js/mail.js"></script>
 </body>
 
 </html>

@@ -14,12 +14,25 @@ function load() {
 
   }
 }
-function cartCounting() {
+let pdc;
+async function getpdc() {
+  pdc = (await ((await fetch("/pdcnt")).json())).count;
+}
+async function cartCounting() {
+  if (!pdc) await getpdc();
   var cartItemNumber = 0;
-  for (let i = 1; i < 13; i++) {
+  for (let i = 1; i <= pdc; i++) {
     if (localStorage.getItem("sp" + i) !== null) {
       cartItemNumber++;
     }
   }
   document.getElementById("countItem").innerHTML = "(" + cartItemNumber + ")";
+}
+function GuiEmail() {
+  Swal.fire({
+  icon: "success",
+  title: "Đã gửi Email",
+  showConfirmButton: false,
+  timer: 1500,
+});
 }
